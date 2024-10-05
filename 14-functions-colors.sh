@@ -51,10 +51,10 @@ log_error() {
 }
 
 
-dnf list installed mysql-serverr
+dnf list installed mysql-server
 
-validate_and_install $? mysql-serverrr
+validate_and_install $? mysql-server
 
-dnf list installed nginxx
+dnf list installed nginx
 
-validate_and_install $? nginxxx
+validate_and_install $? nginx
