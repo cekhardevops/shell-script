@@ -14,12 +14,12 @@ comment
 
 user_id=$(id -u)
 
-if [ $? -nq 0 ]; then
+if [ $? -ne 0 ]; then
     echo "Please execute the script the root previledges"
     exit 1;
 else
     dnf list installed mysql-server
-    if [ $? -nq 0 ]; then
+    if [ $? -ne 0 ]; then
         dnf install mysql-server -y
         echo "mysql installing...."
     else
