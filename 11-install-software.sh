@@ -20,8 +20,9 @@ if [ $? -ne 0 ]; then
 else
     dnf list installed mysql-server
     if [ $? -ne 0 ]; then
-        dnf install mysql-server -y
         echo "mysql installing...."
+        dnf install mysql-server -y
+        echo "mysql installed.."
     else
         echo "mysql already installed on this server"
     fi
