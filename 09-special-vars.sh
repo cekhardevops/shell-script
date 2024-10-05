@@ -6,3 +6,7 @@ echo "script name : ${0}"
 echo "current working directory: ${PWD}"
 echo "first second last parameter pass to the script : $1 $2 ${!#}"
 echo "PID of the script executing now: $$"
+ls /nonexistent-directory
+echo "exit status of previous command $?
+echo hello
+echo "last argument of previous command $_
