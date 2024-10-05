@@ -14,6 +14,8 @@ comment
 
 user_id=$(id -u)
 
+# root id is value always 0
+
 if [ $user_id -ne 0 ]; then
     echo "Please execute the script the root previledges"
     exit 1;
@@ -22,7 +24,11 @@ else
     if [ $? -ne 0 ]; then
         echo "mysql installing...."
         dnf install mysql-server -y
-        echo "mysql installed.."
+        if [ $? -ne 0 ]; then
+            echo "mysql installation gets failed... Please check again"
+        else
+            echo "mysql server installation is success..."
+        fi
     else
         echo "mysql already installed on this server"
     fi
