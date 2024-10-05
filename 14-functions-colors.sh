@@ -30,8 +30,16 @@ validate_and_install(){
     fi
 }
 
+G=[32m
+Y=[33m
+R=[31m
+N=[0m
+
+#\033 or \e we can use 
+
+
 log_info() {
-    echo -e "\033[32m[INFO] $1\033[0m"   # Green for info
+    echo -e "\033$G[INFO] $1\033$N"   # Green for info
 }
 
 log_warning() {
