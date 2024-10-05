@@ -18,6 +18,7 @@ NUMBER=$1
 # -gt	Greater than
 # -ge	Greater than or equal to
 
+echo "given number is : $NUMBER"
 
 if [ $NUMBER -gt 20 ]; then
     echo "given number $NUMBER is greater than 20"
