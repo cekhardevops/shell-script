@@ -2,7 +2,7 @@
 
 <<comment
 
-steps to install software using shell
+this script follow below steps
 1. check whether user has root access
 2. if user has root access, proceed with script
 3. other throw error
@@ -14,7 +14,7 @@ comment
 
 user_id=$(id -u)
 
-if [ $? -ne 0 ]; then
+if [ $user_id -ne 0 ]; then
     echo "Please execute the script the root previledges"
     exit 1;
 else
