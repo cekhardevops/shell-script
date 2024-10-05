@@ -14,4 +14,15 @@ comment
 
 user_id=$(id -u)
 
-echo "user_id : ${user_id}"
+if [ $? -nq 0 ]; then
+    echo "Please execute the script the root previledges"
+    exit 1;
+else
+    dnf list installed mysql-server
+    if [ $? -nq 0 ]; then
+        dnf install mysql-server -y
+        echo "mysql installing...."
+    else
+        echo "mysql already installed on this server"
+    fi
+fi
