@@ -33,3 +33,7 @@ validate_and_install(){
 dnf list installed mysql-server
 
 validate_and_install $? mysql-server
+
+dnf list installed nginx
+
+validate_and_install $? nginx
