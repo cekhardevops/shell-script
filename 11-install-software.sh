@@ -12,6 +12,6 @@ steps to install software using shell
 
 comment
 
-user_id  = $(id -u)
+user_id=$(id -u)
 
 echo "user_id : ${user_id}"
