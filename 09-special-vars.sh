@@ -9,4 +9,4 @@ echo "PID of the script executing now: $$"
 ls /nonexistent-directory
 echo "exit status of previous command $?"
 echo "hello"
-echo "last argument of previous command $_
+echo "last argument of previous command $_"
