@@ -8,7 +8,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 <<comment
-this funtion checks below steps
+validate_and_install funtion checks below steps
 4. check whether software is already installed. if it already installed, inform the user it is already installed
 5. if not , intall it.
 6. check it is success or not.
