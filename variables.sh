@@ -1,9 +1,9 @@
 #!/bin/bash
 
-person1 = xyz
-person2 = abc
+person1=xyz
+person2=abc
 
-echo ": Hi ${person1}, how are you"
+echo " Hi ${person1}, how are you"
 
 echo "${person2}: Hello xyz, How are you doing"
 
