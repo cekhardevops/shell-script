@@ -2,4 +2,4 @@
 
 names=("chandra" "sekhar" "reddy")
 
-echo $names[0]
+echo "first index : $names[0]"
