@@ -10,3 +10,5 @@ ls /nonexistent-directory
 echo "exit status of previous command $?"
 echo "hello"
 echo "last argument of previous command $_"
+sleep 100 &
+echo "process id of last background task $!"
