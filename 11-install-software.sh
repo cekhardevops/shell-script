@@ -11,3 +11,7 @@ steps to install software using shell
 6. check it is success or not.
 
 comment
+
+user_id  = $(id -u)
+
+echo "user_id : ${user_id}"
