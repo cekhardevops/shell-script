@@ -19,17 +19,31 @@ user_id=$(id -u)
 if [ $user_id -ne 0 ]; then
     echo "Please execute the script the root previledges"
     exit 1;
-else
-    dnf list installed mysql-server
+fi
+
+dnf list installed mysql-server
+if [ $? -ne 0 ]; then
+    echo "mysql installing...."
+    dnf install mysql-server -y
     if [ $? -ne 0 ]; then
-        echo "mysql installing...."
-        dnf install mysql-server -y
-        if [ $? -ne 0 ]; then
-            echo "mysql installation gets failed... Please check again"
-        else
-            echo "mysql server installation is success..."
-        fi
+        echo "mysql installation gets failed... Please check again"
+        exit 1;
     else
-        echo "mysql already installed on this server"
+        echo "mysql server installation is success..."
     fi
+else
+    echo "mysql already installed on this server"
+fi
+
+dnf list installed nginx
+if [ $? -ne 0 ]; then
+    echo "prearing to install nginx server......"
+    dnf install nginx -y
+    if [ $? -ne 0 ]; then
+        echo "nginx installation is failed... Please check.."
+    elif
+        echo "nginx is successfully installed..."
+    fi
+elif
+    echo "nginx already installed on this server"
 fi
