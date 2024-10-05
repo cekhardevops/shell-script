@@ -17,19 +17,19 @@ comment
 
 validate_and_install(){
     if [ $1 -ne 0 ]; then
-        echo "installing $1 ... "
-        dnf install $1 -y
+        echo "installing $2 ... "
+        dnf install $2 -y
         if [ $? -ne 0 ]; then
-            echo "$1 installation is failed ... please check it"
+            echo "$2 installation is failed ... please check it"
             exit 1;
         else
-            echo "$1 installed successfully..."
+            echo "$2 installed successfully..."
         fi
     else
-        echo "$1 is already installed..... nothing to do."
+        echo "$2 is already installed..... nothing to do."
     fi
 }
 
 dnf list installed mysql-server
 
-validate_and_install $?
+validate_and_install $? mysql-server
