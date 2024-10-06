@@ -30,7 +30,7 @@ validate_and_install(){
 echo "number of args : $#"
 
 validate_user $user_id
-if [ $# -eq 0 ]; then
+if [ $# -eq 1 ]; then
     echo "provide packages as args to the script to install"
     exit 1;
 fi
