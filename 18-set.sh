@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex #for debug
+set -e #for debug set -ex
 
 echo "hello world"
 echhhhhhhh "sdfsdfsd"
