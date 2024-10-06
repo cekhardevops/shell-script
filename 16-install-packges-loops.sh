@@ -27,7 +27,7 @@ validate_and_install(){
 }
 
 
-
+echo "number of args : $#"
 
 validate_user $user_id
 if [ $# -eq 0 ]; then
