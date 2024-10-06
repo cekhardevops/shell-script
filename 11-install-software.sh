@@ -44,6 +44,6 @@ if [ $? -ne 0 ]; then
     else
         echo "nginx is successfully installed..."
     fi
-else
+elif
     echo "nginx already installed on this server"
 fi
