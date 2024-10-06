@@ -19,7 +19,7 @@
 
 list=("chandra" "sekhar" "reddy")
 
-for names in $list
+for name in $list
 do
-    echo "names : $names"
+    echo "names : $list[name]"
 done
