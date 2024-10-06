@@ -50,7 +50,7 @@ log_error() {
 
 validate_user $user_id
 
-if [ $# -eq 1 ]; then
+if [ $# -eq 0 ]; then
     log_error "provide packages as args to the script to install"
     exit 1;
 fi
