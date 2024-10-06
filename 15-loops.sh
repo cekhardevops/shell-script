@@ -19,7 +19,7 @@
 
 list=("chandra" "sekhar" "reddy")
 
-for name in ${list[$@]}
+for name in ${list[@]}
 do
     echo "names : $name"
 done
