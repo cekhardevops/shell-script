@@ -35,6 +35,7 @@ fi
 
 Files=$(find ${SOURCE_DIR} -name "*.log" -mtime +$NO_OF_DAYS)
 
+echo "NO_OF_DAYS: $NO_OF_DAYS"
 echo "Files: $FILES"
 
 if [ ! -z $Files ]; then
