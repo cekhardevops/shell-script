@@ -16,7 +16,7 @@ done
     echo "@@@@@@@@@@@@@@@@@@@@@@@@@@for file_name in PWD"
 # fetch list of files in the specified directory.
 
-for file_name in ${PWD}
+for file_name in ${PWD}/*
 do
     echo "file name : $file_name"
 done
