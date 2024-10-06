@@ -33,12 +33,12 @@ if [ ! -d $DEST_DIR ]; then
     log_error "$DEST_DIR doesnt exit... provide valid destination path"
 fi
 
-Files=$(find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS)
+Files=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
 if [ ! -z $Files]; then 
     log_info "Files are found"
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip
-    find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS | zip "$ZIP_FILE -@
+    find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE -@
 
     if [ -f $ZIP_FILE]; then
         log_info "successfullhy zipped files older than $NO_OF_DAYS"
