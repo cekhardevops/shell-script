@@ -26,3 +26,17 @@ Linux Date formatter :
 |%j	|Day of the year (001-366)	|279|
 |%V	|ISO week number (01-53)	|40|
 |%u	|Day of the week (1-7, 1=Monday)	|6 (Saturday)|
+
+
+Common Redirection Operators:
+
+|Operator| Description |
+| ------------- | ------------- |
+|>	        |Redirect standard output (overwrite)|
+|>>	        |Redirect standard output (append)|
+|2>	        |Redirect standard error|
+|2>>	    |Append standard error|
+|&>	        |Redirect both output and error (overwrite)|
+|>&	        |Redirect both output and error (alternative)|
+|<	        |Redirect standard input from a file|
+|/dev/null	|Discard output or error|
