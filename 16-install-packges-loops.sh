@@ -4,7 +4,7 @@ user_id=$(id -u)
 
 validate_user(){
     if [ $1 -ne 0 ]; then
-        echo "please run the script with root preveledges"
+        log_error "please run the script with root preveledges"
         exit 1;
     fi
 }
@@ -14,26 +14,47 @@ validate_and_install(){
 
     dnf list installed $1
     if [ $? -ne 0 ]; then
-        echo "$1 is isntalling...."
+        log_warning "$1 is isntalling...."
         dnf install $1 -y
         if [ $? -ne 0 ]; then
-            echo "$1 package not installed. please provid valid package names..."
+            log_error "$1 package not installed. please provid valid package names..."
         else
-            echo "*****$1 package is installed successfully******"
+            log_info "*****$1 package is installed successfully******"
         fi
     else
-        echo "$1 already isntalled...."
+        log_warning "$1 already isntalled...."
     fi
 }
 
+G=[32m
+Y=[33m
+R=[31m
+N=[0m
 
-echo "number of args : $#"
+#\033 or \e we can use 
+
+
+log_info() {
+    echo -e "\033$G[INFO] $1\033$N"   # Green for info
+}
+
+log_warning() {
+    echo -e "\033[33m[WARNING] $1\033[0m" # Yellow for warnings
+}
+
+log_error() {
+    echo -e "\033[7;31m[ERROR] $1\033[0m"   # Red for errors
+}
+
+
 
 validate_user $user_id
+
 if [ $# -eq 1 ]; then
-    echo "provide packages as args to the script to install"
+    log_error "provide packages as args to the script to install"
     exit 1;
 fi
+
 for package in $@
 do
     validate_and_install $package
