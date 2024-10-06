@@ -35,9 +35,9 @@ fi
 
 Files=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
-if [ ! -z $Files]; then 
+if [ ! -z $Files ]; then 
     log_info "Files are found"
-    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip
+    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
     if [ -f $ZIP_FILE]; then
