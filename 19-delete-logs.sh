@@ -1,5 +1,16 @@
 #!/bin/bash
 
+
+<<comment
+
+find file based on size find /path/to/search -type f -size +SIZE[c|k|M|G]
+Size Options
++SIZE: Finds files larger than the specified size.
+-SIZE: Finds files smaller than the specified size.
+SIZE: Finds files that match the exact size.
+
+comment
+
 SOURCE_DIR="/home/ec2-user/logs"
 
 
@@ -59,7 +70,8 @@ fi
 Files=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 log_info "files list : $Files"
 
-while IFS= read  log_file
+while IFS= read -r log_file
 do
     log_info "deleting files: $log_file"
+    rm -rf *
 done <<< $Files
