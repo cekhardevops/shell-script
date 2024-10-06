@@ -35,16 +35,12 @@ fi
 
 Files=$(find ${SOURCE_DIR} -name "*.log" -mtime +$NO_OF_DAYS)
 
-echo "source direcotry : ${SOURCE_DIR}"
-echo "NO_OF_DAYS: $NO_OF_DAYS"
-echo "Files: $Files"
-
 if [ ! -z $Files ]; then
     log_info "Files are found"
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
-    if [ -f $ZIP_FILE]; then
+    if [ -f $ZIP_FILE ]; then
         log_info "successfullhy zipped files older than $NO_OF_DAYS"
         #remove the files after zipping
         while IFS= read -r log_file
@@ -52,7 +48,6 @@ if [ ! -z $Files ]; then
             log_info "deleting files: $log_file"
             rm -rf $log_file
         done <<< $Files
-
     else
         log_error "Zipping the files failed"
         exit 1
