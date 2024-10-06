@@ -39,10 +39,10 @@ validate_user(){
 
 validate_and_install(){
 
-    dnf list installed $1 | tee -a "$LOG_FILE"
+    dnf list installed $1 &>>$LOG_FILE
     if [ $? -ne 0 ]; then
         log_warning "$1 is isntalling...."
-        dnf install $1 -y | tee -a "$LOG_FILE"
+        dnf install $1 -y &>>$LOG_FILE
         if [ $? -ne 0 ]; then
             log_error "$1 package not installed. please provid valid package names..."
         else
