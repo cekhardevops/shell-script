@@ -35,7 +35,7 @@ fi
 
 Files=$(find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS)
 
-if [-n $Files]; then  # If $Files has any content (even spaces or a list of file names), -n returns true.
+if [ -n $Files]; then  # If $Files has any content (even spaces or a list of file names), -n returns true.
     log_info "Files are found"
 else
     log_error "NO Files found"
