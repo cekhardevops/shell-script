@@ -59,7 +59,7 @@ fi
 Files=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 log_info "files list : $Files"
 
-while IFS= read -r log_file
+while IFS= read  log_file
 do
     log_info "deleting files: $log_file"
 done <<< $Files
