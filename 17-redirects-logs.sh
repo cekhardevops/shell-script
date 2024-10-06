@@ -89,7 +89,7 @@ log_error() {
 validate_user $user_id
 
 if [ $# -eq 0 ]; then
-    log_error "provide packages as args to the script to install"
+    echo -e "\033[7;31m $(date +'%Y-%m-%d %H:%M:%S') [ERROR]provide packages as args to the script to install\033[0m"
     exit 1;
 fi
 
