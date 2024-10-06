@@ -35,7 +35,7 @@ fi
 
 Files=$(find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS)
 
-if [ ! -z $Files]; then  # If $Files has any content (even spaces or a list of file names), -n returns true.
+if [ ! -z $Files]; then 
     log_info "Files are found"
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip
     find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS | zip "$ZIP_FILE -@
