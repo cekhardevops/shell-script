@@ -37,7 +37,7 @@ Files=$(find ${SOURCE_DIR} -name "*.log" -mtime +$NO_OF_DAYS)
 
 echo "source direcotry : ${SOURCE_DIR}"
 echo "NO_OF_DAYS: $NO_OF_DAYS"
-echo "Files: $FILES"
+echo "Files: $Files"
 
 if [ ! -z $Files ]; then
     log_info "Files are found"
