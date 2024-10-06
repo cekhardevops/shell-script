@@ -3,21 +3,6 @@
 SOURCE_DIR="/home/ec2-user/logs"
 
 
-if [ -d $SOURCE_DIR ]; then
-    log_info "source directory exists"
-else
-    log_error "source directory doesnt exists"
-    exit 1;
-fi
-
-Files=$(find $SOURCE_DIR -name "*.log" -mtime +14)
-log_info "files list : $Files"
-
-while IFS= read -r log_file
-do
-    log_info "deleting files: $log_file"
-done <<< $Files
-
 G=[32m
 Y=[33m
 R=[31m
@@ -63,3 +48,18 @@ log_error() {
 #     echo -e "\033[7;31m $(date +'%Y-%m-%d %H:%M:%S') [ERROR] $1\033[0m" | tee -a "$LOG_FILE"  # Red for errors
 # }
 
+
+if [ -d $SOURCE_DIR ]; then
+    log_info "source directory exists"
+else
+    log_error "source directory doesnt exists"
+    exit 1;
+fi
+
+Files=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+log_info "files list : $Files"
+
+while IFS= read -r log_file
+do
+    log_info "deleting files: $log_file"
+done <<< $Files
