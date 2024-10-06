@@ -5,7 +5,13 @@
 #     echo "num is $i"
 # done 
 
-for i in {1..9}
+
+# for i in {1..9}
+# do
+#     echo "num is $i"
+# done
+
+for file_name in ${PWD}/*
 do
-    echo "num is $i"
+    echo "file name : $file_name"
 done
