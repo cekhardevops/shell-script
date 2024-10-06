@@ -22,7 +22,7 @@ log_error() {
 
 if [ $# -lt 2 ]; then
     log_error "USAGE:: $0 <source> <destination> <days(optional)"
-    # exit 1;
+    exit 1;
 fi
 
 if [ ! -d $SOURCE_DIR ]; then
@@ -34,6 +34,8 @@ if [ ! -d $DEST_DIR ]; then
 fi
 
 Files=$(find ${SOURCE_DIR} -name "*.log" -mtime +$NO_OF_DAYS)
+
+echo "Files: $FILES"
 
 if [ ! -z $Files ]; then
     log_info "Files are found"
