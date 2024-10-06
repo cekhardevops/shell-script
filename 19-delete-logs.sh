@@ -9,7 +9,7 @@ else
     exit 1;
 fi
 
-Files=$(find $SOURCE_DIR -name="*.log" -mtime +14)
+Files=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 log_info "files list : $Files"
 
 while IFS= read -r line
