@@ -23,7 +23,7 @@ comment
 
 LOGS_DIR="/var/log/shell-script"
 LOG_FILE_NAME=$(echo $0 | cut -d "." -f1)
-TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M")
 LOG_FILE=${LOGS_DIR}/${LOG_FILE_NAME}-${TIMESTAMP}.log
 
 mkdir -p "$LOGS_DIR"
