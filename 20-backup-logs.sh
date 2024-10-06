@@ -23,3 +23,19 @@ log_error() {
 if [ $# -lt 2 ]; then
     log_error "USAGE:: $0 <source> <destination> <days(optional)"
 fi
+
+if [ ! -d $SOURCE_DIR ]; then
+    log_error "$SOURCE_DIR doesnt exit... provide valid source path"
+fi
+
+if [ ! -d $DEST_DIR ]; then
+    log_error "$DEST_DIR doesnt exit... provide valid destination path"
+fi
+
+Files=$(find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS)
+
+if [-n $Files]  # If $Files has any content (even spaces or a list of file names), -n returns true.
+    log_info "Files are found"
+else
+    log_error "NO Files found"
+fi
