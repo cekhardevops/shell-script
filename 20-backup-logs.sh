@@ -22,6 +22,7 @@ log_error() {
 
 if [ $# -lt 2 ]; then
     log_error "USAGE:: $0 <source> <destination> <days(optional)"
+    exit 1;
 fi
 
 if [ ! -d $SOURCE_DIR ]; then
