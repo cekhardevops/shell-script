@@ -26,7 +26,7 @@ LOG_FILE_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 LOG_FILE=${LOGS_DIR}/${LOG_FILE_NAME}-${TIMESTAMP}.log
 
-mkdir -p "$LOG_DIR"
+mkdir -p "$LOGS_DIR"
 
 user_id=$(id -u)
 
