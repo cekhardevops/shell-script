@@ -45,6 +45,7 @@ validate_and_install(){
         dnf install $1 -y &>>$LOG_FILE
         if [ $? -ne 0 ]; then
             log_error "$1 package not installed. please provid valid package names..."
+            exit 1;
         else
             log_info "*****$1 package is installed successfully******"
         fi
