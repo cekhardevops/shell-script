@@ -30,10 +30,10 @@ validate_and_install(){
 
 
 validate_user $user_id
-if [ $@ -eq 0 ]{
+if [ $@ -eq 0 ]; then
     echo "provide packages as args to the script to install"
     exit 1;
-}
+fi
 for package in $@
 do
     validate_and_install $package
