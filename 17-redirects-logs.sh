@@ -33,13 +33,13 @@ user_id=$(id -u)
 validate_user(){
     if [ $1 -ne 0 ]; then
         log_error "please run the script with root preveledges"
-        exit 1;
+        exit 1; 
     fi
 }
 
 validate_and_install(){
 
-    dnf list installed $1 &>>"$LOG_FILE"
+    dnf list installed $1 &>>$LOG_FILE
     if [ $? -ne 0 ]; then
         log_warning "$1 is isntalling...."
         dnf install $1 -y 
