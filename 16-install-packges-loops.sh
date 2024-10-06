@@ -14,12 +14,12 @@ validate_and_install(){
     if [ $? -ne 0 ]; then
         echo "$1 is isntalling...."
         dnf install $1 -y
-        if [ $? -ne 0 ]
+        if [ $? -ne 0 ]; then
             echo "$1 package not installed. please check..."
-        elif
+        else
             echo "*****$1 package is installed successfully******"
         fi
-    elif
+    else
         echo "$1 already isntalled...."
     fi
 }
