@@ -17,7 +17,7 @@ validate_and_install(){
         echo "$1 is isntalling...."
         dnf install $1 -y
         if [ $? -ne 0 ]; then
-            echo "$1 package not installed. please check..."
+            echo "$1 package not installed. please provid valid package names..."
         else
             echo "*****$1 package is installed successfully******"
         fi
