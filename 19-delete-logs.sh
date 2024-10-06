@@ -73,5 +73,5 @@ log_info "files list : $Files"
 while IFS= read -r log_file
 do
     log_info "deleting files: $log_file"
-    rm -rf *
+    rm -rf $log_file
 done <<< $Files
