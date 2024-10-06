@@ -33,7 +33,7 @@ if [ ! -d $DEST_DIR ]; then
     log_error "$DEST_DIR doesnt exit... provide valid destination path"
 fi
 
-Files=$(find ${SOURCE_DIR} -name "*.log" -mtime +$NO_OF_DAYS)
+Files=$( find ${SOURCE_DIR} -name "*.log" -mtime +$NO_OF_DAYS )
 
 if [ ! -z $Files ]; then
     log_info "Files are found"
