@@ -8,6 +8,8 @@ validate_user(){
         exit 1;
     fi
 }
+
+
 validate_and_install(){
 
     dnf list installed $1
@@ -28,7 +30,10 @@ validate_and_install(){
 
 
 validate_user $user_id
-
+if [ $@ -eq 0 ]{
+    echo "provide packages as args to the script to install"
+    exit 1;
+}
 for package in $@
 do
     validate_and_install $package
