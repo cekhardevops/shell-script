@@ -11,7 +11,15 @@
 #     echo "num is $i"
 # done
 
-for file_name in ${PWD}/*
+#fetch list of files in the specified directory.
+# for file_name in ${PWD}/*
+# do
+#     echo "file name : $file_name"
+# done
+
+list=("chandra" "sekhar" "reddy")
+
+for names in $list
 do
-    echo "file name : $file_name"
+    echo "names : $names"
 done
