@@ -39,7 +39,7 @@ validate_user(){
 
 validate_and_install(){
 
-    dnf list installed $1
+    dnf list installed $1 &>>"$LOG_FILE"
     if [ $? -ne 0 ]; then
         log_warning "$1 is isntalling...."
         dnf install $1 -y 
