@@ -1,19 +1,24 @@
 #!/bin/bash
 
-USERID=$(id -u)
-
-if [ $USERID -ne 0 ]; then
-    log_error "please run the script with root previledges"
-    exit 1;
-fi
 
 <<comment
 validate_and_install funtion checks below steps
 4. check whether software is already installed. if it already installed, inform the user it is already installed
 5. if not , intall it.
 6. check it is success or not.
-
 comment
+
+USERID=$(id -u)
+
+validate_root_user $USERID
+
+
+validate_root_user(){
+    if [ $1 -ne 0 ]; then
+        log_error "please run the script with root previledges"
+        exit 1;
+    fi
+}
 
 validate_and_install(){
     if [ $1 -ne 0 ]; then
