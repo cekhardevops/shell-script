@@ -3,7 +3,7 @@
 SOURCE_DIR=$1
 DEST_DIR=$2
 NO_OF_DAYS=${3:-14}
-
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M")
 #check source and destination provided
 
 
@@ -35,8 +35,23 @@ fi
 
 Files=$(find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS)
 
-if [ -n $Files]; then  # If $Files has any content (even spaces or a list of file names), -n returns true.
+if [ ! -z $Files]; then  # If $Files has any content (even spaces or a list of file names), -n returns true.
     log_info "Files are found"
+    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip
+    find $SOURCE_DIR -name "*.log" -mtime +$NO_OF_DAYS | zip "$ZIP_FILE -@
+
+    if [ -f $ZIP_FILE]; then
+        log_info "successfullhy zipped files older than $NO_OF_DAYS"
+        #remove the files after zipping
+        while IFS= read -r log_file
+        do
+            log_info "deleting files: $log_file"
+            rm -rf $log_file
+        done <<< $Files
+
+    else
+        log_error "Zipping the files failed"
+    fi
 else
     log_error "NO Files found"
 fi
